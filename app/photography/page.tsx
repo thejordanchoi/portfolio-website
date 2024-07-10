@@ -1,30 +1,24 @@
 'use client'
 
 export default function PhotographyPage() {
-    const handleScroll = () => {
-        
-        const scrollableElement = document.getElementById("test");
-        const scrollPosition = scrollableElement?.scrollTop;
-        console.log(scrollPosition)
-        console.log(scrollableElement?.scrollHeight);
-        const totalHeight = scrollableElement?.scrollHeight;
-        if (scrollPosition && totalHeight) {
-            let percentOfPage = scrollPosition / totalHeight
-            let page = Math.ceil(percentOfPage * 2)
-            console.log(page)
-        }
-        
-    }
     return (
-        <div id="test" onScroll={handleScroll} className="snap-y snap-mandatory overflow-visible overflow-scroll h-dvh">
-            <div className="h-dvh snap-start bg-amber-200 flex items-center justify-center">
-                <h1>Section 1</h1>
-            </div>
-            <div className="h-dvh snap-start bg-cyan-200 flex items-center justify-center">
-                <h1>Section 2</h1>
-            </div>
-            <div className="h-dvh snap-start bg-fuchsia-200 flex items-center justify-center">
-                <h1>Section 3</h1>
+        <div className="flex justify-center items-center m-4">
+            <div className="grid grid-cols-3 gap-4">
+                <div className="space-y-4">
+                    <img className="rounded-lg" src="photography_photos/1.jpg"></img>
+                    <img className="rounded-lg" src="photography_photos/2.jpg"></img>
+                    <img className="rounded-lg" src="photography_photos/3.jpg"></img>
+                </div>
+                <div className="space-y-4">
+                    <img className="h-auto max-w-full rounded-lg" src="photography_photos/4.jpg"></img>
+                    <img className="h-auto max-w-full rounded-lg" src="photography_photos/5.jpg"></img>
+                    <img className="h-auto max-w-full rounded-lg" src="photography_photos/6.jpg"></img>
+                </div>
+                <div className="space-y-4">
+                    <img className="h-auto max-w-full rounded-lg" src="photography_photos/7.jpg"></img>
+                    <img className="h-auto max-w-full rounded-lg" src="photography_photos/8.jpg"></img>
+                    <img className="h-auto max-w-full rounded-lg" src="photography_photos/9.jpg"></img>
+                </div>
             </div>
         </div>
     )
