@@ -5,6 +5,10 @@ import React, { useState, useRef, useEffect } from 'react';
 const FullPageCarousel: React.FunctionComponent = () => {
     const [page, setPage] = useState(0);
 
+    useEffect(() => {
+        setPage(getPagePosition())
+    }, [])
+
     const sectionRefs = [
         useRef<HTMLDivElement>(null),
         useRef<HTMLDivElement>(null),
@@ -19,29 +23,34 @@ const FullPageCarousel: React.FunctionComponent = () => {
     
     const handleScroll = () => {
         // TODO: make buttons disappear after timeout of non scroll
+        const page = getPagePosition()
+        setPage(page);
+    }
+
+    const getPagePosition = () => {
         const scrollableElement = document.getElementById("carousel-component")!
         const scrollPosition = scrollableElement.scrollTop;
         const scrollableHeight = scrollableElement.scrollHeight;
         const page = Math.ceil((scrollPosition / scrollableHeight) * 3);
-        console.log(page);
-        setPage(page);
+        return page
     }
+
 
     // component
     return (
         
         <div id="carousel-component" onScroll={handleScroll} className="snap-y snap-mandatory overflow-y-auto h-dvh">
-            <div ref={sectionRefs[0]} className="h-screen snap-start bg-indigo-200 flex items-center justify-center relative">
+            <div ref={sectionRefs[0]} className="h-screen snap-start bg-black flex items-center justify-center relative">
                 <div className="absolute h-full w-full flex flex-col items-center justify-center">
                     <img src="/jordan_headshot.jpeg" alt="jordan-headshot" className="animate-slidein opacity-0 [--slidein-delay:300ms] rounded-full h-24 w-24"></img>
-                    <h1 className="animate-slidein opacity-0 [--slidein-delay:500ms] text-white text-5xl font-sans-serif font-light tracking-[.25em]">Jordan Choi</h1>
-                    <p className="animate-slidein opacity-0 [--slidein-delay:700ms] text-white text-2xl font-sans-serif font-light tracking-[.15em]">Software Engineering | Photography | Automotive</p>
+                    <h1 className="animate-slidein opacity-0 [--slidein-delay:500ms] text-white text-5xl font-sans-serif font-light tracking-[.1em]">Jordan Choi</h1>
+                    <p className="animate-slidein opacity-0 [--slidein-delay:700ms] text-white text-2xl font-sans-serif font-light tracking-[.em]">Software Engineering  |  Photography  |  Automotive</p>
                     <div className="animate-bounce fixed bottom-5">
                         <img src="/double_arrow_down.svg" alt="scroll_down_arrow" className="animate-slidein opacity-0 [--slidein-delay:1000ms] rounded-full h-8 w-8"></img>
                     </div>
                 </div>
             </div>
-            <div ref={sectionRefs[1]} className="h-dvh snap-start bg-amber-200 flex items-center justify-center relative">
+            <div ref={sectionRefs[1]} className="h-dvh snap-start bg-black flex items-center justify-center relative">
                 <video className="h-full w-full object-cover" playsInline autoPlay muted loop id="gt3rs">
                     <source src="/gt3rs.mp4" type="video/mp4"></source>
                 </video>
@@ -49,7 +58,7 @@ const FullPageCarousel: React.FunctionComponent = () => {
                     <h1 className="text-white sm:text-5xl md:text-5xl lg:text-8xl font-sans-serif font-light tracking-[.5em]"><a href="/engineering">ENGINEERING</a></h1>
                 </div>
             </div>
-            <div ref={sectionRefs[2]} className="h-dvh snap-start bg-cyan-200 flex items-center justify-center relative">
+            <div ref={sectionRefs[2]} className="h-dvh snap-start bg-black flex items-center justify-center relative">
                 <video className="h-full w-full object-cover" playsInline autoPlay muted loop id="g80">
                     <source src="/g80_clip.mp4" type="video/mp4"></source>
                 </video>
@@ -57,7 +66,7 @@ const FullPageCarousel: React.FunctionComponent = () => {
                     <h1 className="text-white sm:text-5xl md:text-5xl lg:text-8xl font-sans-serif font-light tracking-[.5em]"><a href="/photography">PHOTOGRAPHY</a></h1>
                 </div>
             </div>
-            <div ref={sectionRefs[3]} className="h-dvh snap-start bg-fuchsia-200 flex items-center justify-center relative">
+            <div ref={sectionRefs[3]} className="h-dvh snap-start bg-black flex items-center justify-center relative">
                 <video className="h-full w-full object-cover" playsInline autoPlay muted loop id="g82">
                     <source src="/g82_clip.mp4" type="video/mp4"></source>
                 </video>
