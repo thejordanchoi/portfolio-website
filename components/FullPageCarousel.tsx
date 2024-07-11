@@ -46,8 +46,8 @@ const FullPageCarousel: React.FunctionComponent = () => {
                         <img src="/jordan_headshot.jpg" alt="jordan-headshot" className="animate-slidein opacity-0 [--slidein-delay:300ms] object-cover rounded-full h-40 w-40"></img>
                         <h1 className="animate-slidein opacity-0 [--slidein-delay:500ms] text-white text-5xl font-sans-serif font-light tracking-[.1em]">Jordan Choi</h1>
                         <p className="animate-slidein opacity-0 [--slidein-delay:700ms] text-white text-2xl font-sans-serif font-light tracking-[.em]">Software Engineering  |  Photography  |  Automotive</p>
-                        <div className="animate-bounce fixed bottom-5">
-                            <svg src="/down-arrow.svg" alt="scroll_down_arrow" className="animate-slidein opacity-0 [--slidein-delay:1000ms] rounded-full h-8 w-8"></svg>
+                        <div className="animate-bounce fixed bottom-10">
+                            <img src="/down-arrow.svg" alt="scroll_down_arrow" className="animate-slidein opacity-0 [--slidein-delay:1000ms] rounded-full h-8 w-8"></img>
                         </div>
                     </div>
                 </div>
